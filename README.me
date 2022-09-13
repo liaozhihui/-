@@ -1,0 +1,12 @@
+# 创建预安装 Python 3.7 的名叫 deploy 虚拟环境
+conda create -n deploy python=3.7 -y
+# 进入虚拟环境
+conda activate deploy
+# 安装 cpu 版本的 PyTorch
+conda install pytorch torchvision cpuonly -c pytorch
+
+# 安装 cuda 11.3 的 PyTorch
+# 如果你用的是其他版本的 cuda，请参考上面 PyTorch 的官方安装教程选择安装命令
+conda install pytorch torchvision cudatoolkit=11.3 -c pytorch
+
+pip install onnxruntime onnx opencv-python
