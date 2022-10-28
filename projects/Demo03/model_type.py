@@ -23,6 +23,6 @@ for model, model_name in zip(models, model_names):
     model_script = torch.jit.script(model)
 
     # 跟踪法与直接 torch.onnx.export(model, ...)等价
-    torch.onnx.export(model_trace, dummy_input, f'{model_name}_trace.onnx', example_outputs=dummy_output)
+    torch.onnx.export(model, dummy_input, f'{model_name}_trace.onnx',example_outputs=dummy_output)
     # 记录法必须先调用 torch.jit.sciprt
-    torch.onnx.export(model_script, dummy_input, f'{model_name}_script.onnx', example_outputs=dummy_output)
+    torch.onnx.export(model_script, dummy_input, f'{model_name}_script.onnx',example_outputs=dummy_output)
